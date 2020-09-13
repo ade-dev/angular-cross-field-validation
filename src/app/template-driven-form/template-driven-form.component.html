@@ -1,0 +1,68 @@
+<div class="main-container">
+    <div class="form-container">
+        <form (ngSubmit)="onSubmit(templateForm)" #templateForm="ngForm" class="form"
+            [ngFormOptions]="{ updateOn: 'blur' }">
+            <fieldset ngModelGroup="emailGroup" #emailGroup="ngModelGroup"
+                [appCompareInputValidate]="['email', 'confirmEmail']">
+                <label for="name">Name: </label>
+                <input id="name" type="text" name="name" [(ngModel)]="model.name" #name="ngModel">
+                <label for="email">Email address:</label>
+                <input id="email" type="text" name="email" [(ngModel)]="model.email" #email="ngModel"
+                    autocomplete="email" required>
+                <div *ngIf="email && email.errors && email.invalid && (email.dirty || email.touched)"
+                    class="alert alert-error">
+                    <div *ngIf="email.errors.required">
+                        <p>Email is required.</p>
+                    </div>
+                    <div *ngIf="email.errors.email">
+                        <p>Please enter a valid email.</p>
+                    </div>
+                </div>
+                <label for="confirmEmail">Confirm email:</label>
+                <input id="confirmEmail" type="text" name="confirmEmail" [(ngModel)]="model.confirmEmail"
+                    #confirmEmail="ngModel" required>
+                <div *ngIf="confirmEmail && emailGroup && emailGroup.errors?.compareValueError && (confirmEmail.dirty || confirmEmail.touched) && (email && !email.errors)"
+                    class="alert alert-error">
+                    <p>Email entries do not match.</p>
+                </div>
+            </fieldset>
+
+            <fieldset ngModelGroup="passwordGroup" #passwordGroup="ngModelGroup"
+                [appCompareInputValidate]="['password', 'confirmPassword']">
+                <div class="form-section">
+                    <button type="button" class="toggle-view" (click)="toggleView('password')"
+                        title="Show password as plain text">
+                        <span *ngIf="pwordHidden">Show</span><span *ngIf="!pwordHidden">Hide</span>
+                    </button>
+                    <label for="password">Password:</label>
+                    <input id="password" [type]="pwordHidden ? 'password' : 'text'" name="password"
+                        [(ngModel)]="model.password" #password="ngModel" autocomplete="new-password" required>
+                    <div *ngIf="password && password.errors && password.invalid && (password.dirty || password.touched)"
+                        class="alert alert-error">
+                        <div *ngIf="password.errors.required">
+                            <p>Password is required.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <button type="button" class="toggle-view" (click)="toggleView('confirmPassword')"
+                        title="Show password as plain text">
+                        <span *ngIf="cPwordHidden">Show</span><span *ngIf="!cPwordHidden">Hide</span>
+                    </button>
+                    <label for="confirmPassword">Confirm password:</label>
+                    <input id="confirmPassword" [type]="cPwordHidden ? 'password' : 'text'" name="confirmPassword"
+                        [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" autocomplete="new-password"
+                        required>
+                    <div *ngIf="confirmPassword && passwordGroup && passwordGroup.errors?.compareValueError && (confirmPassword.dirty || confirmPassword.touched)"
+                        class="alert alert-error">
+                        <p>Password entries do not match</p>
+                    </div>
+                </div>
+            </fieldset>
+            <button type="submit">Submit</button>
+            <p>
+                Form Status: {{ templateForm.status }}
+            </p>
+        </form>
+    </div>
+</div>

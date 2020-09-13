@@ -1,0 +1,156 @@
+/* Global Styles */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #111;
+}
+
+app-root {
+    width: 100%;
+}
+
+.main-container {
+    background-color: #f7f7f7;
+    width: calc(100%-48px);
+    padding: 24px;
+    color: #111;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.form-container {
+    width: 100%;
+    margin: 0px auto;
+}
+
+form {
+    width: 100%;
+}
+
+.form-container input {
+    width: calc(100% - 20px);
+}
+
+fieldset {
+    width: 100%;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.form-section {
+    width: 100%;
+    margin: 0px;
+    position: relative;
+}
+
+button.toggle-view {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 300;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 36px;
+    right: 10px;
+}
+
+button.toggle-view:focus {
+    outline: none;
+}
+
+button.toggle-view:hover {
+    background: none;
+}
+
+button {
+    background-color: #eee;
+    border: none;
+    margin: 20px 0px 0px 0px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+button:hover {
+    background-color: #cfd8dc;
+}
+
+label, input {
+    display: block;
+    margin-top: 20px;
+}
+
+input {
+    height: 12px;
+    margin: 10px 0px 0px 0px;
+    padding: 10px;
+    border: 1px solid #e1e1e1;
+}
+
+.alert {
+    width: calc(100%-20px);
+    padding: 0px 10px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+input[text], button {
+    padding: 12px;
+}
+
+h1 {
+    color: #369;
+    font-size: 14px;
+    text-align: center;
+    margin: 15px 0px 0px 0px;
+    padding: 0px;
+}
+
+h2, h3 {
+    color: #444;
+}
+
+a {
+    cursor: pointer;
+    cursor: hand;
+}
+
+nav a {
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 0px;
+    display: inline-block;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+}
+
+nav a:visited, a:link {
+    color: #607D8B;
+}
+
+nav a:hover {
+    color: #039be5;
+    background-color: #CFD8DC;
+}
+
+nav a.active, nav a:focus {
+    color: #039be5;
+}
+
+@media only screen and (min-width: 321px) {
+    .form-container {
+        width: 300px;
+    }
+}
