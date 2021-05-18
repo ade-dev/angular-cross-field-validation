@@ -8,7 +8,7 @@
                 <input id="name" type="text" name="name" [(ngModel)]="model.name" #name="ngModel">
                 <label for="email">Email address:</label>
                 <input id="email" type="text" name="email" [(ngModel)]="model.email" #email="ngModel"
-                    autocomplete="email" required>
+                    autocomplete="email" required email>
                 <div *ngIf="email && email.errors && email.invalid && (email.dirty || email.touched)"
                     class="alert alert-error">
                     <div *ngIf="email.errors.required">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </fieldset>
-            <button type="submit">Submit</button>
+            <button type="submit" class="submitButton">Submit</button>
             <p>
                 Form Status: {{ templateForm.status }}
             </p>

@@ -14,6 +14,7 @@ export class ReactiveFormComponent implements OnInit {
 
   public pwordHidden: Boolean = true;
   public cPwordHidden: Boolean = true;
+  public validationMessage: string = '';
 
   reactiveForm = this.formBuilder.group({
     emailGroup: this.formBuilder.group(
@@ -47,11 +48,13 @@ export class ReactiveFormComponent implements OnInit {
 
   onSubmit() {
     if (this.reactiveForm.errors || this.reactiveForm.invalid) {
-      alert("Reactive form has errors");
+      this.validationMessage = 'Reactive form has errors';
+      alert(this.validationMessage);
       return;
     }
     else {
-      alert("Reactive form submitted");
+      this.validationMessage = 'Reactive form has been submitted';
+      alert(this.validationMessage);
     }
   };
 

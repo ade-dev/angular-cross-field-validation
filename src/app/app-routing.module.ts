@@ -12,6 +12,7 @@ const routes: Routes = [
     path: 'template-driven-form', component: TemplateDrivenFormComponent,
     data: { title: 'Angular – Template-driven form input value cross-validation' }
   },
+  { path: '**', redirectTo: '/reactive-form', pathMatch: 'full' },
   { path: '', redirectTo: '/reactive-form', pathMatch: 'full' },
 ];
 
