@@ -16,7 +16,7 @@ export interface UserR {
         password: string;
         confirmPassword: string;
     };
-};
+}
 
 export const mockValidRuser: UserR = {
     emailGroup: {

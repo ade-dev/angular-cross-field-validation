@@ -4,7 +4,6 @@ import { ReactiveFormComponent } from './reactive-form.component';
 import { UserR, mockValidRuser, mockInvalidRuser } from '../user';
 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { by } from 'protractor';
 
 describe('ReactiveForm', () => {
   let component: ReactiveFormComponent;
@@ -33,7 +32,7 @@ describe('ReactiveForm', () => {
     component.confirmEmail?.setValue(user.emailGroup.confirmEmail);
     component.password?.setValue(user.passwordGroup.password);
     component.confirmPassword?.setValue(user.passwordGroup.confirmPassword);
-  };
+  }
 
   describe('Form', () => {
     it('Should be created', () => {
@@ -59,7 +58,7 @@ describe('ReactiveForm', () => {
       updateForm(mockValidRuser);
       spyOn(window, "alert");
       app.nativeElement.querySelector("button[type='submit']").click();
-      let submitted = component.reactiveForm.value;
+      const submitted = component.reactiveForm.value;
       expect(submitted).toEqual(mockValidRuser);
     });
   });

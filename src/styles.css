@@ -21,7 +21,7 @@ app-root {
 
 .form-container {
     width: 100%;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 form {
@@ -34,14 +34,14 @@ form {
 
 fieldset {
     width: 100%;
-    border: 0px;
-    padding: 0px;
-    margin: 0px;
+    border: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .form-section {
     width: 100%;
-    margin: 0px;
+    margin: 0;
     position: relative;
 }
 
@@ -50,8 +50,8 @@ button.toggle-view {
     border: none;
     cursor: pointer;
     font-weight: 300;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     position: absolute;
     top: 36px;
     right: 10px;
@@ -68,32 +68,32 @@ button.toggle-view:hover {
 button {
     background-color: #eee;
     border: none;
-    margin: 20px 0px 0px 0px;
+    margin: 20px 0 0 0;
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
-    cursor: hand;
 }
 
 button:hover {
     background-color: #cfd8dc;
 }
 
-label, input {
+label,
+input {
     display: block;
     margin-top: 20px;
 }
 
 input {
     height: 12px;
-    margin: 10px 0px 0px 0px;
+    margin: 10px 0 0 0;
     padding: 10px;
     border: 1px solid #e1e1e1;
 }
 
 .alert {
     width: calc(100%-20px);
-    padding: 0px 10px;
+    padding: 0 10px;
     margin-bottom: 20px;
     border: 1px solid transparent;
     border-radius: 4px;
@@ -105,7 +105,8 @@ input {
     border-color: #ebccd1;
 }
 
-input[text], button {
+input[text],
+button {
     padding: 12px;
 }
 
@@ -113,31 +114,32 @@ h1 {
     color: #369;
     font-size: 14px;
     text-align: center;
-    margin: 15px 0px 0px 0px;
-    padding: 0px;
+    margin: 15px 0 0 0;
+    padding: 0;
 }
 
-h2, h3 {
+h2,
+h3 {
     color: #444;
 }
 
 a {
     cursor: pointer;
-    cursor: hand;
 }
 
 nav a {
     padding: 5px 10px;
     text-decoration: none;
     margin-right: 10px;
-    margin-top: 0px;
+    margin-top: 0;
     display: inline-block;
     background-color: #f7f7f7;
     border-radius: 4px;
 }
 
-nav a:visited, a:link {
-    color: #607D8B;
+nav a:visited,
+a:link {
+    color: #039be5;
 }
 
 nav a:hover {
@@ -145,8 +147,9 @@ nav a:hover {
     background-color: #CFD8DC;
 }
 
-nav a.active, nav a:focus {
-    color: #039be5;
+nav a.active,
+nav a:focus {
+    color: #607D8B;
 }
 
 @media only screen and (min-width: 321px) {

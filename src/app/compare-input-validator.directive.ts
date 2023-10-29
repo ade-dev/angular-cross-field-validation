@@ -9,7 +9,7 @@ export function compareInputValidator(crossFields: Array<string>): ValidatorFn {
     }
     return { compareValueError: true };
   };
-};
+}
 @Directive({
   selector: '[appCompareInputValidate]',
   providers: [{ provide: NG_VALIDATORS, useExisting: CompareInputValidatorDirective, multi: true }]
@@ -21,5 +21,4 @@ export class CompareInputValidatorDirective {
   validate(control: AbstractControl) {
     return this.crossFields ? compareInputValidator(this.crossFields)(control) : null;
   }
-  constructor() { }
 }

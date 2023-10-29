@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { compareInputValidator } from '../compare-input-validator.directive';
 
 @Component({
@@ -8,13 +8,13 @@ import { compareInputValidator } from '../compare-input-validator.directive';
   styleUrls: ['./reactive-form.component.css']
 })
 
-export class ReactiveFormComponent implements OnInit {
+export class ReactiveFormComponent {
 
-  constructor(private formBuilder: FormBuilder) { };
+  constructor(private formBuilder: FormBuilder) { }
 
-  public pwordHidden: Boolean = true;
-  public cPwordHidden: Boolean = true;
-  public validationMessage: string = '';
+  public pwordHidden = true;
+  public cPwordHidden = true;
+  public validationMessage = '';
 
   reactiveForm = this.formBuilder.group({
     emailGroup: this.formBuilder.group(
@@ -34,17 +34,17 @@ export class ReactiveFormComponent implements OnInit {
     )
   }, { updateOn: "blur" });
 
-  get emailGroup() { return this.reactiveForm.get('emailGroup'); };
-  get passwordGroup() { return this.reactiveForm.get('passwordGroup'); };
-  get name() { return this.reactiveForm.get('emailGroup.name'); };
-  get email() { return this.reactiveForm.get('emailGroup.email'); };
-  get confirmEmail() { return this.reactiveForm.get('emailGroup.confirmEmail'); };
-  get password() { return this.reactiveForm.get('passwordGroup.password'); };
-  get confirmPassword() { return this.reactiveForm.get('passwordGroup.confirmPassword'); };
+  get emailGroup() { return this.reactiveForm.get('emailGroup'); }
+  get passwordGroup() { return this.reactiveForm.get('passwordGroup'); }
+  get name() { return this.reactiveForm.get('emailGroup.name'); }
+  get email() { return this.reactiveForm.get('emailGroup.email'); }
+  get confirmEmail() { return this.reactiveForm.get('emailGroup.confirmEmail'); }
+  get password() { return this.reactiveForm.get('passwordGroup.password'); }
+  get confirmPassword() { return this.reactiveForm.get('passwordGroup.confirmPassword'); }
 
   public toggleView(field: string) {
     field === 'password' ? this.pwordHidden = !this.pwordHidden : this.cPwordHidden = !this.cPwordHidden;
-  };
+  }
 
   onSubmit() {
     if (this.reactiveForm.errors || this.reactiveForm.invalid) {
@@ -56,8 +56,5 @@ export class ReactiveFormComponent implements OnInit {
       this.validationMessage = 'Reactive form has been submitted';
       alert(this.validationMessage);
     }
-  };
-
-  ngOnInit(): void {
   }
 }

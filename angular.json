@@ -98,22 +98,15 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "codeCoverageExclude": [
-              "src/tests/**"
-            ]
+            "scripts": []
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
             ]
           }
         },
@@ -133,5 +126,13 @@
       }
     }
   },
-  "defaultProject": "angular-form-input-cross-validator"
+  "cli": {
+    "cache": {
+      "enabled": false
+    },
+    "schematicCollections": [
+      "@angular-eslint/schematics",
+      "@schematics/angular"
+    ]
+  }
 }

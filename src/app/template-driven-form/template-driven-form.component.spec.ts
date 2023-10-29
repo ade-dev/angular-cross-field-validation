@@ -1,12 +1,10 @@
-import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TemplateDrivenFormComponent } from './template-driven-form.component';
 
 import { FormsModule } from '@angular/forms';
 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { browser } from 'protractor';
-
 
 describe('TemplateDrivenFormComponent', () => {
   let component: TemplateDrivenFormComponent;
