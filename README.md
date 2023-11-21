@@ -10,9 +10,8 @@ By [Ade Oyebadejo](http://www.clade.co.uk/adewole)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
-The project has been updated to Angular version 16.2.10
-
-Using Node version 18.10.0
+Version 2.0.0 - Project updated to Angular version 16 Using Node version 18.10.0
+Version 3.0.0 - Project updated to Angular version 17 Using Node version 18.13.0
 
 ### Getting Started
 

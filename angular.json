@@ -70,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-form-input-cross-validator:build"
+            "buildTarget": "angular-form-input-cross-validator:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-form-input-cross-validator:build:production"
+              "buildTarget": "angular-form-input-cross-validator:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-form-input-cross-validator:build"
+            "buildTarget": "angular-form-input-cross-validator:build"
           }
         },
         "test": {
