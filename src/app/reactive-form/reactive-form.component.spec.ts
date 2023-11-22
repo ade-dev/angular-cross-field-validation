@@ -3,18 +3,14 @@ import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { ReactiveFormComponent } from './reactive-form.component';
 import { UserR, mockValidRuser, mockInvalidRuser } from '../user';
 
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-
 describe('ReactiveForm', () => {
   let component: ReactiveFormComponent;
   let app: ComponentFixture<ReactiveFormComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ReactiveFormComponent],
       providers: [FormBuilder],
-      imports: [FormsModule, ReactiveFormsModule],
-      schemas: [NO_ERRORS_SCHEMA]
+      imports: [FormsModule, ReactiveFormsModule, ReactiveFormComponent]
     })
       .compileComponents();
 

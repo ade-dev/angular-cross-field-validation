@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'reactive-form', component: ReactiveFormComponent,
     data: { title: 'Angular - Reactive form input value cross-validation' }
@@ -15,9 +14,3 @@ const routes: Routes = [
   { path: '**', redirectTo: '/reactive-form', pathMatch: 'full' },
   { path: '', redirectTo: '/reactive-form', pathMatch: 'full' },
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' })],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }

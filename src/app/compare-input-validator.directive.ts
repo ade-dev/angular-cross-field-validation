@@ -12,6 +12,7 @@ export function compareInputValidator(crossFields: Array<string>): ValidatorFn {
 }
 @Directive({
   selector: '[appCompareInputValidate]',
+  standalone: true,
   providers: [{ provide: NG_VALIDATORS, useExisting: CompareInputValidatorDirective, multi: true }]
 })
 export class CompareInputValidatorDirective {

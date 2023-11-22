@@ -12,7 +12,7 @@ app-root {
 
 .main-container {
     background-color: #f7f7f7;
-    width: calc(100%-48px);
+    width: calc(100% - 48px);
     padding: 24px;
     color: #111;
     font-weight: 400;
@@ -92,7 +92,7 @@ input {
 }
 
 .alert {
-    width: calc(100%-20px);
+    width: calc(100% - 20px);
     padding: 0 10px;
     margin-bottom: 20px;
     border: 1px solid transparent;

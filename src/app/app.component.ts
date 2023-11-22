@@ -1,10 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -15,7 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   }
 
-  title = 'Angular - Form input value cross validator';
+  pageHeading = 'Angular - Form input value cross validator';
   routeSubscription!: Subscription;
 
   setTitle() {
@@ -27,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
       while (route && route.firstChild) {
         route = route.firstChild;
       }
-      route?.snapshot.data['title'] ? this.title = route.snapshot.data['title'] : '';
+      route?.snapshot.data['title'] ? this.pageHeading = route.snapshot.data['title'] : '';
     });
   }
 

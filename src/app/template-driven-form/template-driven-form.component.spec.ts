@@ -4,17 +4,13 @@ import { TemplateDrivenFormComponent } from './template-driven-form.component';
 
 import { FormsModule } from '@angular/forms';
 
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-
 describe('TemplateDrivenFormComponent', () => {
   let component: TemplateDrivenFormComponent;
   let app: ComponentFixture<TemplateDrivenFormComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule],
-      declarations: [TemplateDrivenFormComponent],
-      schemas: [NO_ERRORS_SCHEMA]
+      imports: [FormsModule, TemplateDrivenFormComponent]
     })
       .compileComponents();
   }));

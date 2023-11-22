@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { compareInputValidator } from '../compare-input-validator.directive';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './reactive-form.component.html',
   styleUrls: ['./reactive-form.component.css']
 })

@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormsModule } from '@angular/forms';
 import { User } from '../user';
+import { CommonModule } from '@angular/common';
+import { CompareInputValidatorDirective } from '../compare-input-validator.directive';
 
 @Component({
   selector: 'app-template-driven-form',
+  standalone: true,
+  imports: [CommonModule, FormsModule, CompareInputValidatorDirective],
   templateUrl: './template-driven-form.component.html',
   styleUrls: ['./template-driven-form.component.css']
 })
