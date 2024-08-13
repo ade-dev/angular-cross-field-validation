@@ -1,20 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { compareInputValidator } from '../compare-input-validator.directive';
-import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './reactive-form.component.html',
   styleUrls: ['./reactive-form.component.css']
 })
 
 export class ReactiveFormComponent {
 
-  constructor(private formBuilder: FormBuilder) { }
+  private formBuilder = inject(FormBuilder);
 
   public pwordHidden = true;
   public cPwordHidden = true;
@@ -47,7 +46,12 @@ export class ReactiveFormComponent {
   get confirmPassword() { return this.reactiveForm.get('passwordGroup.confirmPassword'); }
 
   public toggleView(field: string) {
-    field === 'password' ? this.pwordHidden = !this.pwordHidden : this.cPwordHidden = !this.cPwordHidden;
+    if (field === 'password') {
+      this.pwordHidden = !this.pwordHidden;
+    }
+    else {
+      this.cPwordHidden = !this.cPwordHidden;
+    }
   }
 
   onSubmit() {

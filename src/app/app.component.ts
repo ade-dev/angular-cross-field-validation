@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -13,15 +13,13 @@ import { filter } from 'rxjs/operators';
 
 export class AppComponent implements OnInit, OnDestroy {
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute | null) {
-
-  }
+  private router = inject(Router);
+  private activatedRoute = inject(ActivatedRoute);
 
   pageHeading = 'Angular - Form input value cross validator';
   routeSubscription!: Subscription;
 
   setTitle() {
-
     this.routeSubscription = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
@@ -29,7 +27,9 @@ export class AppComponent implements OnInit, OnDestroy {
       while (route && route.firstChild) {
         route = route.firstChild;
       }
-      route?.snapshot.data['title'] ? this.pageHeading = route.snapshot.data['title'] : '';
+      if (route?.snapshot.data['title']) {
+        this.pageHeading = route.snapshot.data['title'];
+      }
     });
   }
 

@@ -1,7 +1,7 @@
 import { Directive, Input } from '@angular/core';
 import { ValidatorFn, ValidationErrors, AbstractControl, NG_VALIDATORS } from '@angular/forms';
 
-export function compareInputValidator(crossFields: Array<string>): ValidatorFn {
+export function compareInputValidator(crossFields: string[]): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     if ((control.get(crossFields[0])?.value && control.get(crossFields[1]))?.value &&
       control.get(crossFields[0])?.value === control.get(crossFields[1])?.value) {
@@ -17,7 +17,7 @@ export function compareInputValidator(crossFields: Array<string>): ValidatorFn {
 })
 export class CompareInputValidatorDirective {
 
-  @Input('appCompareInputValidate') crossFields?: Array<string>;
+  @Input('appCompareInputValidate') crossFields?: string[];
 
   validate(control: AbstractControl) {
     return this.crossFields ? compareInputValidator(this.crossFields)(control) : null;

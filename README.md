@@ -2,7 +2,7 @@
 
 A demo angular application with unit and e2e tests, for the article at: http://clade.co.uk/adewole/blog/angular/cross-field-validation
 
-I wanted to share my experience and gather feedback on creating a custom Angular cross-field validator that compares and validates the values of multiple groups of input fields and their relative confirm input fields. The app is built with Angular – strict mode, for both reactive and template-driven forms.
+An Angular application with a custom cross-field validator which compares and validates the values of multiple groups of input fields and their relative confirm input fields. The application implements cross-field validation for both reactive and template-driven forms.
 
 By [Ade Oyebadejo](http://www.clade.co.uk/adewole)
 
@@ -10,8 +10,9 @@ By [Ade Oyebadejo](http://www.clade.co.uk/adewole)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
-Version 2.0.0 - Project updated to Angular version 16 Using Node version 18.10.0
-Version 3.0.0 - Project updated to Angular version 17 Using Node version 18.13.0
+Version 2.0.0 - Project updated to Angular version 16 Using Node version 18.10.0\
+Version 3.0.0 - Project updated to Angular version 17 Using Node version 18.13.0\
+Version 4.0.0 - Project updated to Angular version 18 Using Node version 22.0.0
 
 ### Getting Started
 

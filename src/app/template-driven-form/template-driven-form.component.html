@@ -9,54 +9,70 @@
                 <label for="email">Email:</label>
                 <input id="email" type="text" name="email" [(ngModel)]="model.email" #email="ngModel"
                     autocomplete="email" required email>
-                <div *ngIf="email && email.errors && email.invalid && (email.dirty || email.touched)"
-                    class="alert alert-error">
-                    <div *ngIf="email.errors?.['required']">
-                        <p data-cy="emailIsRequiredError">Email is required.</p>
+                @if (email.errors && email.invalid && (email.dirty || email.touched)) {
+                    <div class="alert alert-error">
+                        @if (email.hasError('required')) {
+                            <div>
+                                <p data-cy="emailIsRequiredError">Email is required.</p>
+                            </div>
+                        }
+                        @if (email.hasError('email')) {
+                            <div>
+                                <p data-cy="emailIsInvalidError">Please enter a valid email.</p>
+                            </div>
+                        }
                     </div>
-                    <div *ngIf="email.errors?.['email']">
-                        <p data-cy="emailIsInvalidError">Please enter a valid email.</p>
-                    </div>
-                </div>
+                }
                 <label for="confirmEmail">Confirm email:</label>
                 <input id="confirmEmail" type="text" name="confirmEmail" [(ngModel)]="model.confirmEmail"
                     #confirmEmail="ngModel" required>
-                <div *ngIf="confirmEmail && emailGroup && emailGroup.errors?.['compareValueError'] && (confirmEmail.dirty || confirmEmail.touched) && (email && !email.errors)"
-                    class="alert alert-error">
-                    <p data-cy="emailsNoMatch">Email entries do not match.</p>
-                </div>
+                @if (emailGroup.hasError('compareValueError') && (confirmEmail.dirty || confirmEmail.touched) && (email && !email.errors)) {
+                    <div class="alert alert-error">
+                        <p data-cy="emailsNoMatch">Email entries do not match.</p>
+                    </div>
+                }
             </fieldset>
 
             <fieldset ngModelGroup="passwordGroup" #passwordGroup="ngModelGroup"
                 [appCompareInputValidate]="['password', 'confirmPassword']">
                 <div class="form-section">
-                    <button type="button" class="toggle-view" (click)="toggleView('password')"
-                        title="Show password as plain text">
-                        <span *ngIf="pwordHidden">Show</span><span *ngIf="!pwordHidden">Hide</span>
+                    <button type="button" class="toggle-view" (click)="toggleView('password')" title="Show password as plain text">
+                        @if (pwordHidden) {
+                            <span>Show</span>
+                        }
+                        @else {
+                            <span>Hide</span>
+                        }
                     </button>
                     <label for="password">Password:</label>
                     <input id="password" [type]="pwordHidden ? 'password' : 'text'" name="password"
                         [(ngModel)]="model.password" #password="ngModel" autocomplete="new-password" required>
-                    <div *ngIf="password && password.errors && password.invalid && (password.dirty || password.touched)"
-                        class="alert alert-error">
-                        <div *ngIf="password.errors?.['required']">
-                            <p data-cy="passwordIsRequiredError">Password is required.</p>
-                        </div>
-                    </div>
+                        @if (password.errors && password.invalid && (password.dirty || password.touched) && password.hasError('required')) {
+                            <div class="alert alert-error">
+                                <div>
+                                    <p data-cy="passwordIsRequiredError">Password is required.</p>
+                                </div>
+                            </div>
+                        }
                 </div>
                 <div class="form-section">
-                    <button type="button" class="toggle-view" (click)="toggleView('confirmPassword')"
-                        title="Show password as plain text">
-                        <span *ngIf="cPwordHidden">Show</span><span *ngIf="!cPwordHidden">Hide</span>
+                    <button type="button" class="toggle-view" (click)="toggleView('confirmPassword')" title="Show password as plain text">
+                        @if (pwordHidden) {
+                            <span>Show</span>
+                        }
+                        @else {
+                            <span>Hide</span>
+                        }
                     </button>
                     <label for="confirmPassword">Confirm password:</label>
                     <input id="confirmPassword" [type]="cPwordHidden ? 'password' : 'text'" name="confirmPassword"
                         [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" autocomplete="new-password"
                         required>
-                    <div *ngIf="confirmPassword && passwordGroup && passwordGroup.errors?.['compareValueError'] && (confirmPassword.dirty || confirmPassword.touched)"
-                        class="alert alert-error">
-                        <p data-cy="passwordsNoMatch">Password entries do not match</p>
-                    </div>
+                    @if (confirmPassword && passwordGroup.hasError('compareValueError') && (confirmPassword.dirty || confirmPassword.touched)) {
+                        <div class="alert alert-error">
+                            <p data-cy="passwordsNoMatch">Password entries do not match</p>
+                        </div>
+                    }
                 </div>
             </fieldset>
             <button type="submit" class="submitButton">Submit</button>

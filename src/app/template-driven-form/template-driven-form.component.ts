@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { User } from '../user';
-import { CommonModule } from '@angular/common';
 import { CompareInputValidatorDirective } from '../compare-input-validator.directive';
 
 @Component({
   selector: 'app-template-driven-form',
   standalone: true,
-  imports: [CommonModule, FormsModule, CompareInputValidatorDirective],
+  imports: [FormsModule, CompareInputValidatorDirective],
   templateUrl: './template-driven-form.component.html',
   styleUrls: ['./template-driven-form.component.css']
 })
@@ -19,7 +18,12 @@ export class TemplateDrivenFormComponent {
   public submitted = false;
 
   public toggleView(field: string) {
-    field === 'password' ? this.pwordHidden = !this.pwordHidden : this.cPwordHidden = !this.cPwordHidden;
+    if (field === 'password') {
+      this.pwordHidden = !this.pwordHidden;
+    }
+    else {
+      this.cPwordHidden = !this.cPwordHidden;
+    }
   }
 
   onSubmit(thisForm: NgForm) {
