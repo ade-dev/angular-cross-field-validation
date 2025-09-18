@@ -1,19 +1,23 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TemplateDrivenFormComponent } from './template-driven-form.component';
 
 import { FormsModule } from '@angular/forms';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('TemplateDrivenFormComponent', () => {
   let component: TemplateDrivenFormComponent;
   let app: ComponentFixture<TemplateDrivenFormComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      providers: [
+        provideZonelessChangeDetection(),
+      ],
       imports: [FormsModule, TemplateDrivenFormComponent]
     })
       .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     app = TestBed.createComponent(TemplateDrivenFormComponent);

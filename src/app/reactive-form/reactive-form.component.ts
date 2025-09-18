@@ -4,11 +4,10 @@ import { compareInputValidator } from '../compare-input-validator.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-reactive-form',
-  standalone: true,
-  imports: [ReactiveFormsModule],
-  templateUrl: './reactive-form.component.html',
-  styleUrls: ['./reactive-form.component.css']
+    selector: 'app-reactive-form',
+    imports: [ReactiveFormsModule],
+    templateUrl: './reactive-form.component.html',
+    styleUrls: ['./reactive-form.component.css']
 })
 
 export class ReactiveFormComponent {

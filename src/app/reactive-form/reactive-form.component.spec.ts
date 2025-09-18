@@ -1,4 +1,5 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { ReactiveFormComponent } from './reactive-form.component';
 import { UserR, mockValidRuser, mockInvalidRuser } from '../user';
@@ -7,19 +8,22 @@ describe('ReactiveForm', () => {
   let component: ReactiveFormComponent;
   let app: ComponentFixture<ReactiveFormComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      providers: [FormBuilder],
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      providers: [
+        provideZonelessChangeDetection(),
+        FormBuilder
+      ],
       imports: [FormsModule, ReactiveFormsModule, ReactiveFormComponent]
     })
       .compileComponents();
 
-  }));
+  });
 
-  beforeEach(() => {
+  beforeEach(async() => {
     app = TestBed.createComponent(ReactiveFormComponent);
     component = app.componentInstance;
-    app.detectChanges();
+    await app.whenStable();
   });
 
   function updateForm(user: UserR) {

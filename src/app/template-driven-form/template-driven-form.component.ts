@@ -4,11 +4,10 @@ import { User } from '../user';
 import { CompareInputValidatorDirective } from '../compare-input-validator.directive';
 
 @Component({
-  selector: 'app-template-driven-form',
-  standalone: true,
-  imports: [FormsModule, CompareInputValidatorDirective],
-  templateUrl: './template-driven-form.component.html',
-  styleUrls: ['./template-driven-form.component.css']
+    selector: 'app-template-driven-form',
+    imports: [FormsModule, CompareInputValidatorDirective],
+    templateUrl: './template-driven-form.component.html',
+    styleUrls: ['./template-driven-form.component.css']
 })
 export class TemplateDrivenFormComponent {
 

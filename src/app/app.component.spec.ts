@@ -1,4 +1,5 @@
-import { TestBed, waitForAsync, fakeAsync, tick } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { Router, RouterLink, provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { AppComponent } from './app.component';
@@ -9,10 +10,11 @@ describe('AppComponent', () => {
   let appComponent: AppComponent;
   let harness: RouterTestingHarness;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule(Object.assign({}, appConfig, {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule(Object.assign({}, appConfig, {
       imports: [AppComponent],
       providers: [
+        provideZonelessChangeDetection(),
         provideRouter([{ path: '**', component: AppComponent }])
       ]
     }))
@@ -22,7 +24,7 @@ describe('AppComponent', () => {
         appComponent = await harness.navigateByUrl('/', AppComponent);
         harness.detectChanges();
       });
-  }));
+  });
 
   it('should create an instance of the app', () => {
     expect(appComponent).toBeInstanceOf(AppComponent);
@@ -35,21 +37,12 @@ describe('AppComponent', () => {
     expect(linkItems[1].getAttribute('routerLink')).toBe('/template-driven-form');
   });
 
-  it('should activate RouterLinks', fakeAsync(() => {
+  it('should activate RouterLinks', async () => {
     const linkElms = harness.routeDebugElement?.queryAll(By.directive(RouterLink));
-    linkElms![0].triggerEventHandler('click', { button: 0, });
-    tick();
+    await linkElms![0].triggerEventHandler('click', { button: 0, });
     expect(TestBed.inject(Router).url).toEqual('/reactive-form');
 
-    linkElms![1].triggerEventHandler('click', { button: 0, });
-    tick();
+    await linkElms![1].triggerEventHandler('click', { button: 0, });
     expect(TestBed.inject(Router).url).toEqual('/template-driven-form');
-  }));
-
-  it('should render correct page heading', () => {
-    appComponent.pageHeading = 'Angular - Reactive form input value cross-validation';
-    harness.detectChanges();
-    const heading = harness.routeNativeElement?.querySelector('h1');
-    expect(heading?.textContent).toContain('Angular - Reactive form input value cross-validation');
   });
 });

@@ -12,7 +12,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Version 2.0.0 - Project updated to Angular version 16 Using Node version 18.10.0\
 Version 3.0.0 - Project updated to Angular version 17 Using Node version 18.13.0\
-Version 4.0.0 - Project updated to Angular version 18 Using Node version 22.0.0
+Version 4.0.0 - Project updated to Angular version 18 Using Node version 22.0.0\
+Version 5.0.0 - Project updated to Angular version 20 Using Node version 22.12.0
 
 ### Getting Started
 
